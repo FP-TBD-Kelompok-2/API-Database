@@ -2,11 +2,18 @@
 import os
 import pymysql
 from flask import jsonify
+import yaml
 
-db_user = os.environ.get('CLOUD_SQL_USERNAME')
-db_password = os.environ.get('CLOUD_SQL_PASSWORD')
-db_name = os.environ.get('CLOUD_SQL_DATABASE_NAME')
-db_connection_name = os.environ.get('CLOUD_SQL_CONNECTION_NAME')
+with open("./app.yaml", "r") as stream:
+    try:
+        env = yaml.safe_load(stream)
+    except yaml.YAMLError as exc:
+        print(exc)
+
+db_user = str(env["env_variables"]["CLOUD_SQL_USERNAME"])
+db_password = str(env["env_variables"]["CLOUD_SQL_PASSWORD"])
+db_name = str(env["env_variables"]["CLOUD_SQL_DATABASE_NAME"])
+db_connection_name = str(env["env_variables"]["CLOUD_SQL_CONNECTION_NAME"])
 
 
 def open_connection():
