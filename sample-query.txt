@@ -1,0 +1,36 @@
+-- create table
+create table handphones(
+    id_hp INT NOT NULL AUTO_INCREMENT,
+    device_name VARCHAR(255),
+    device_brand VARCHAR(255),
+    device_storage VARCHAR(255),
+    device_connectivity VARCHAR(255),
+    device_battery VARCHAR(255),
+    cpu_name VARCHAR(255),
+    cpu_cores VARCHAR(255),
+    cpu_clock VARCHAR(255),
+    antutu_score VARCHAR(255),
+    description TEXT,
+    stock INT,
+    price INT,
+    color VARCHAR(255),
+    img VARCHAR(255),
+	PRIMARY KEY(id_hp)
+);
+
+-- insert data
+INSERT INTO handphones (id_hp, device_name, device_brand, device_storage, device_connectivity, device_battery, cpu_name, cpu_cores, cpu_clock, antutu_score, description, stok) VALUES (1,"Iphone 14 Pro","Apple", "512", "5G", "5000","Bionic", "6", "3000","1000000","Barang ready, silahkan dibeli! Original IBOX!",100)
+
+-- insert data hp on cloud
+'INSERT INTO handpones (id_hp, device_name, device_brand, device_storage, device_connectivity, device_battery, cpu_name, cpu_cores, cpu_clock, antutu_score, description, stok) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)', (1,"Iphone 14 Pro","Apple", "512", "5G", "5000","Bionic", "6", "3000","1000000","Barang ready, silahkan dibeli! Original IBOX!",100)
+
+-- create table users
+create table users(
+    id_user INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255),
+    email VARCHAR(255),
+    password VARCHAR(255),
+    phone_number VARCHAR(255),
+    address VARCHAR(255),
+    PRIMARY KEY(id_user)
+    );
