@@ -10,3 +10,4 @@ with open("./app.yaml", "r") as stream:
 
 
 HOST_URI = str(env["env_variables"]["HOST_URI"])
+print('gegeg')
