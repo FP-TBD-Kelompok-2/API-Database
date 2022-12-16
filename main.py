@@ -105,6 +105,30 @@ def add_checkout():
 def delete_checkout(id_checkout):
     return delete_checkout_by_id(id_checkout)
 
+#get all order
+@app.route('/order', methods=['GET'])
+def get_order():
+    return get_all_order()
+
+#get order by id
+@app.route('/order/<int:id_order>', methods=['GET'])
+def detail_order(id_order):
+    return get_order_by_id(id_order)
+
+
+# insert order
+@app.route('/order/add', methods=['POST'])
+def add_order():
+    if not request.is_json:
+        return jsonify({"msg": "Missing JSON in request"}), 400
+    return insert_order(request.get_json())
+
+
+#delete order
+@app.route('/order/<int:id_order>/delete', methods=['DELETE'])
+def delete_order(id_order):
+    return delete_order_by_id(id_order)
+
 
 if __name__ == '__main__':
     app.run()
