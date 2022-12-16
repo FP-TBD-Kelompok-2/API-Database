@@ -2,8 +2,10 @@
 from flask import Flask, request
 from DB.sql_rdbms import *
 from DB.redis_keyvalue import *
+from DB.mongo_documentdb import *
 
 app = Flask(__name__)
+
 
 #  =================== SQL ===================  #
 @app.route('/', methods=['GET'])
@@ -56,7 +58,7 @@ def add_user():
 def detail_user(id_user):
     return get_user_by_id(id_user)
 
-
+# =========== END OF SQL =========== #
 # =========== REDIS ===========  #
 
 @app.route('/cart', methods=['GET'])
@@ -78,6 +80,30 @@ def checkout_cart(id_cart):
 @app.route('/cart/<int:id_cart>/delete', methods=['DELETE'])
 def delete_cart(id_cart):
     return delete_cart_by_id(id_cart)
+# =========== END OF REDIS ==========  #
+
+# =========== MONGODB ===========  #
+@app.route('/checkout', methods=['GET'])
+def get_checkout():
+    return get_all_checkout()
+
+# get checkout by id
+@app.route('/checkout/<int:id_checkout>', methods=['GET'])
+def detail_checkout(id_checkout):
+    return get_checkout_by_id(id_checkout)
+
+
+# insert checkout
+@app.route('/checkout/add', methods=['POST'])
+def add_checkout():
+    if not request.is_json:
+        return jsonify({"msg": "Missing JSON in request"}), 400
+    return insert_checkout(request.get_json())
+
+# delete checkout
+@app.route('/checkout/<int:id_checkout>/delete', methods=['DELETE'])
+def delete_checkout(id_checkout):
+    return delete_checkout_by_id(id_checkout)
 
 
 if __name__ == '__main__':
