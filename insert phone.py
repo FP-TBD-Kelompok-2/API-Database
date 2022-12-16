@@ -31,7 +31,7 @@ for row_cells in worksheet.iter_rows(min_row=2, max_row=worksheet.max_row):
         stock = row_cells[ColNames['stock']].value
         price = row_cells[ColNames['price']].value
         color = row_cells[ColNames['color']].value
-        img = row_cells[ColNames['price']].value
+        img = row_cells[ColNames['img']].value
 
         body = {
             "device_name": device_name,
