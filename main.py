@@ -111,6 +111,7 @@ def delete_checkout(id_checkout):
 def get_order():
     return get_all_order()
 
+
 #get order by id
 @app.route('/order/<int:id_order>', methods=['GET'])
 def detail_order(id_order):
