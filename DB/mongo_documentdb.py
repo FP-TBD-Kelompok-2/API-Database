@@ -67,7 +67,7 @@ def insert_checkout(data):
 def delete_checkout_by_id(id_hp):
     mongo = open_conn()
     currentCollection = mongo.tbd.receipt
-    currentCollection.delete_many({'id_order': id_hp})
+    currentCollection.delete_one({'id_order': id_hp})
     return jsonify({"msg": "Checkout Berhasil Dihapus"}), 200
 
 
@@ -139,5 +139,10 @@ def insert_order(data):
 def delete_order_by_id(id_order):
     mongo = open_conn()
     currentCollection = mongo.tbd.receipt
-    currentCollection.delete_many({'id_order': id_order})
+    currentCollection.delete_one({'id_order': id_order})
     return jsonify({"msg": "Order Berhasil Dihapus"}), 200
+
+def clear_checkout():
+    mongo = open_conn()
+    currentCollection = mongo.tbd.receipt
+    currentCollection.delete_many({})
