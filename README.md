@@ -11,7 +11,7 @@
 | /hp                                | -                            | List of Products                | -                                  |
 | /hp/add                            | Add Product Catalog          | -                               | -                                  |
 | /hp/stock                          | Update Product Stock         | -                               | -                                  |
-| /hp/<int:id_hp>                    | -                            | Get Product by Id               | -                                  |
+| /hp/`<int:id_hp>`                  | -                            | Get Product by Id               | -                                  |
 | /hp/<int:id_hp>/delete             | -                            | -                               | Delete Product by Id               |
 | /user                              | -                            | List All User Data              | -                                  |
 | /user/add                          | Add User                     | -                               | -                                  |
