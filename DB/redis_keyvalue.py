@@ -103,8 +103,6 @@ def insert_cart(data):
     total_harga = data["total_harga"]
     gambar_hp = data["gambar_hp"]
 
-    if qty_order > qty_stock:
-        return jsonify({"msg": "Stock tidak cukup"}), 400
 
     r.hset("cart_id:" + str(id_hp), "id_hp", id_hp)
     r.hset("cart_id:" + str(id_hp), "nama_hp", nama_hp)

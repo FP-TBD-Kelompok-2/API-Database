@@ -3,6 +3,7 @@ from flask import Flask, request
 from DB.sql_rdbms import *
 from DB.redis_keyvalue import *
 from DB.mongo_documentdb import *
+from DB.neo4j_graph import *
 
 app = Flask(__name__)
 
@@ -104,7 +105,12 @@ def add_checkout():
 @app.route('/checkout/<int:id_checkout>/delete', methods=['DELETE'])
 def delete_checkout(id_checkout):
     return delete_checkout_by_id(id_checkout)
+# ========== END OF MONGODB =========  #
 
+# =========== NEO4J ===========  #
+@app.route('/product/rank', methods=['GET'])
+def get_product_rank():
+    return get_product_ranking()
 
 if __name__ == '__main__':
     app.run()
