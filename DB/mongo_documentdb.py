@@ -110,10 +110,8 @@ def insert_order(data):
     name = data['name']
     phone_number = data['phone_number']
 
-    # order
-    # order_id = data['order_id']
-    # order_time = data['order_time']
-    order_id = uuid.uuid4()
+    # order_id
+    order_id = str(uuid.uuid4())
     order_time = datetime.now()
 
     currentCollection.insert_one({
