@@ -133,7 +133,7 @@ def delete_order(id_order):
 
 # delete checkout
 @app.route('/checkout/clear', methods=['DELETE'])
-def clear_checkout():
+def clear_co():
     return clear_checkout()
 
 # ========== END OF MONGODB =========  #

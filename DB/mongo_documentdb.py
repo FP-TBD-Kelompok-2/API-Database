@@ -3,6 +3,7 @@ import yaml
 from flask import jsonify
 from flask import Flask, jsonify, request, redirect
 import pymongo
+
 import random
 from datetime import datetime
 from bson.json_util import dumps, loads
@@ -67,7 +68,7 @@ def insert_checkout(data):
 def delete_checkout_by_id(id_hp):
     mongo = open_conn()
     currentCollection = mongo.tbd.receipt
-    currentCollection.delete_one({'id_order': id_hp})
+    currentCollection.delete_one({'id_hp': id_hp})
     return jsonify({"msg": "Checkout Berhasil Dihapus"}), 200
 
 
@@ -146,3 +147,4 @@ def clear_checkout():
     mongo = open_conn()
     currentCollection = mongo.tbd.receipt
     currentCollection.delete_many({})
+    return jsonify({"msg": "Order Berhasil Dihapus"}), 200
