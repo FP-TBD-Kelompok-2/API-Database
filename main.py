@@ -131,6 +131,11 @@ def add_order():
 def delete_order(id_order):
     return delete_order_by_id(id_order)
 
+# delete checkout
+@app.route('/checkout/clear', methods=['DELETE'])
+def clear_checkout():
+    return clear_checkout()
+
 # ========== END OF MONGODB =========  #
 
 # =========== NEO4J ===========  #
