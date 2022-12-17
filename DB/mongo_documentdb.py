@@ -64,10 +64,10 @@ def insert_checkout(data):
     return jsonify({"msg": "Checkout Berhasil"}), 200
 
 
-def delete_checkout_by_id(id_checkout):
+def delete_checkout_by_id(id_hp):
     mongo = open_conn()
     currentCollection = mongo.tbd.receipt
-    currentCollection.delete_many({'id_order': id_checkout})
+    currentCollection.delete_many({'id_order': id_hp})
     return jsonify({"msg": "Checkout Berhasil Dihapus"}), 200
 
 
@@ -108,7 +108,6 @@ def insert_order(data):
     email = data['email']
     id_user = data['id_user']
     name = data['name']
-    password = data['password']
     phone_number = data['phone_number']
 
     # order
@@ -132,7 +131,6 @@ def insert_order(data):
         'email': email,
         'id_user': id_user,
         'name': name,
-        'password': password,
         'phone_number': phone_number,
         'order_id': order_id,
         'order_time': order_time
