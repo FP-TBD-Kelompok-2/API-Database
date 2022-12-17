@@ -18,7 +18,7 @@ def open_conn():
 
 
 def cleaning_data(data):
-    return pd.DataFrame(data).sort_values(by=['n.antutuScore'], ascending=False).to_json(orient='records')
+    return pd.DataFrame(data).sort_values(by=['n.antutuScore'], ascending=False).head().to_json(orient='records')
 
 
 def get_product_ranking():
