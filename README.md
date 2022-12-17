@@ -33,3 +33,25 @@
 | /checkout/clear                     | -                            | -                               | Delete All Data in Order History   |
 |              **NEO4J**              |                              |                                 |                                    |
 | /product/rank                       | -                            | Get Product Recomendation       | -                                  |
+
+
+# InstructionsInstallation
+1. Clone this repository
+```
+git clone https://github.com/farrelarrizal/api-db.git
+cd api-db
+code .
+```
+2. Run the following command to install all dependencies
+```
+pip install -r requirements.txt
+```
+3. Run the following command to run the application
+```
+cp app-example.yaml app.yaml
+```
+4. Edit the app.yaml file to match your configuration
+5. Run the following command to run the application
+```
+python main.py
+```
