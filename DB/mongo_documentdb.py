@@ -6,7 +6,7 @@ import pymongo
 import random
 from datetime import datetime
 from bson.json_util import dumps, loads
-
+import uuid
 with open("./app.yaml", "r") as stream:
     try:
         env = yaml.safe_load(stream)
@@ -112,8 +112,10 @@ def insert_order(data):
     phone_number = data['phone_number']
 
     # order
-    order_id = data['order_id']
-    order_time = data['order_time']
+    # order_id = data['order_id']
+    # order_time = data['order_time']
+    order_id = uuid.uuid4()
+    order_time = datetime.now()
 
     currentCollection.insert_one({
         'device_name': device_name,
