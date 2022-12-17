@@ -5,9 +5,9 @@
  - Document Database  (MONGO) for storing data in checkout page and order histoy
  - Graph Database     (NEO4J) for product recomendation
  
- | HTTP METHOD                        | POST                         | GET                             | DELETE                             |
+| HTTP METHOD                         | POST                         | GET                             | DELETE                             |
 |-------------------------------------|------------------------------|---------------------------------|------------------------------------|
-| **SQL**                             |                              |                                 |                                    |
+|               **SQL**               |                              |                                 |                                    |
 | /hp                                 | -                            | List of Products                | -                                  |
 | /hp/add                             | Add Product Catalog          | -                               | -                                  |
 | /hp/stock                           | Update Product Stock         | -                               | -                                  |
@@ -16,12 +16,12 @@
 | /user                               | -                            | List All User Data              | -                                  |
 | /user/add                           | Add User                     | -                               | -                                  |
 | /user/`<int:id_user>`               | -                            | Get User by Id                  | -                                  |
-| **REDIS**                           |                              |                                 |                                    |
+|              **REDIS**              |                              |                                 |                                    |
 | /cart                               | -                            | Get Product in Cart             | -                                  |
 | /cart/add                           | Add Product to Cart          | -                               | -                                  |
 | /cart/`<int:id_cart>`/checkout      | -                            | Get Product in Cart by Id       | -                                  |
 | /cart/`<int:id_cart>`/delete        | -                            | -                               | Delete Product in Cart by Id       |
-| **MONGODB**                         |                              |                                 |                                    |
+|             **MONGODB**             |                              |                                 |                                    |
 | /checkout                           | -                            | Get Product in Checkout Page    | -                                  |
 | /checkout/`<int:id_checkout>`       | -                            | Get Product in Checkout by ID   | -                                  |
 | /checkout/add                       | Add Product to Checkout Page | -                               | -                                  |
@@ -31,5 +31,5 @@
 | /order/add                          | Add Data to Order History    | -                               | -                                  |
 | /order/`<int:id_order>`/delete      | -                            | -                               | Delete Data in Order History by Id |
 | /checkout/clear                     | -                            | -                               | Delete All Data in Order History   |
-| **NEO4J**                           |                              |                                 |                                    |
+|              **NEO4J**              |                              |                                 |                                    |
 | /product/rank                       | -                            | Get Product Recomendation       | -                                  |
